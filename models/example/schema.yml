@@ -1,21 +1,20 @@
-
 version: 2
 
 models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
 
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+  - name: trajets_summary
+    description: "Résumé des trajets avec le nombre de trajets et le montant total par segment de client et type de véhicule."
+    columns:
+      - name: nom_segment
+        description: "Le segment auquel appartient le client (ex : Particulier, VIP, Entreprise)."
+        tests:
+          - not_null
+      - name: nom_type_vehicule
+        description: "Le type de véhicule utilisé pour le trajet (ex : Berline, SUV)."
+        tests:
+          - not_null
+      - name: nombre_trajets
+        description: "Le nombre total de trajets effectués pour ce type de véhicule et ce segment de client."
+      - name: total_revenus
+        description: "Le montant total des revenus générés par les trajets pour ce type de véhicule et ce segment de client."
+        
